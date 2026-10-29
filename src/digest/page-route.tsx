@@ -15,7 +15,7 @@ export function registerDigestPage(
     const digest = read(config.runsDir, c.req.param('night'));
     if (digest === null) return c.notFound();
 
-    const rows = [...digest.rows].sort((a, b) => a.job.localeCompare(b.job));
+    const rows = digest.rows;
     return c.html(
       <Layout title={`digest · ${digest.night}`} lane={lane()}>
         <h1>digest · {digest.night}</h1>
